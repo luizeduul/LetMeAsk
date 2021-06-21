@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Let me ask
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+ <img alt="Repository size" src="https://img.shields.io/github/repo-size/luizeduul/LetMeAsk">
+ <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luizeduul/LetMeAsk">
+ <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+<p>Projeto desenvolvido durante a Next Level Week Together da Rocketseat 🚀</p>
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+- [Descrição](#descrição)
+- [Como utilizar](#como-utilizar)
+- [Previews do projeto](#previews-do-projeto)
+- [Tecnologias Utilizadas](#tecnologias)
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Descrição
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+coming soon
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como utilizar
 
-### `yarn build`
+<p>Faça um clone desse projeto em sua máquina</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p>Primeiramente você vai precisar instalar as dependencias do projeto</p>
+<p>Abra a pasta do projeto Plant Manager no terminal</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>Faça a instalação das dependencias do projeto. Com yarn ou npm.</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`yarn install` 
 
-### `yarn eject`
+<p>ou</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`npm install`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>Se tudo der certo, será aberto o navegador com localhost na porta 3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Previews do projeto
 
-## Learn More
+<p align="center">
+  comming soon
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Typescript](https://www.typescriptlang.org/) : TypeScript é um superconjunto de JavaScript desenvolvido pela Microsoft que adiciona tipagem e alguns outros recursos a linguagem.
+- [React Native](https://facebook.github.io/react-native/) : É uma biblioteca criada pelo Facebook, com base no ReactJS, para desenvolvimento de aplicações Mobile (Android e IOS utilizando) apenas JavaScript como linguagem. Diferencial para as outras libs do genero, é que ele compila código nativo (Java: Android e Swift: IOS) e não um aplicativo com uma página web.
