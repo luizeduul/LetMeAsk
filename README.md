@@ -29,7 +29,7 @@ coming soon
 <p>Faça um clone desse projeto em sua máquina</p>
 
 <p>Primeiramente você vai precisar instalar as dependencias do projeto</p>
-<p>Abra a pasta do projeto Plant Manager no terminal</p>
+<p>Abra a pasta do projeto Let Me Ask no terminal</p>
 
 <p>Faça a instalação das dependencias do projeto. Com yarn ou npm.</p>
 
