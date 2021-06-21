@@ -56,4 +56,4 @@ coming soon
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Typescript](https://www.typescriptlang.org/) : TypeScript é um superconjunto de JavaScript desenvolvido pela Microsoft que adiciona tipagem e alguns outros recursos a linguagem.
-- [React Native](https://facebook.github.io/react-native/) : É uma biblioteca criada pelo Facebook, com base no ReactJS, para desenvolvimento de aplicações Mobile (Android e IOS utilizando) apenas JavaScript como linguagem. Diferencial para as outras libs do genero, é que ele compila código nativo (Java: Android e Swift: IOS) e não um aplicativo com uma página web.
+- [React JS](https://reactjs.org) : É uma biblioteca de código aberto, mantida por Facebook, outras empresas e uma comunidade de devs independentes. Utilizado para criação de interfaces de usuário.
