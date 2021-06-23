@@ -1,7 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
+import { AuthProvider } from './contexts/Auth';
+
+import Routes from './Routes';
 
 const App: React.FC = () => {
-  return <h1>Ola</h1>;
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </BrowserRouter>
+  );
 };
 
 export default App;
