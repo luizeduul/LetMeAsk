@@ -1,8 +1,8 @@
 import React from 'react';
 
-import copyImage from '../assets/images/copy.svg';
+import copyImage from '../../assets/images/copy.svg';
 
-import '../styles/room-code.scss';
+import './styles.scss';
 
 type RoomCodeProps = {
   code: string;

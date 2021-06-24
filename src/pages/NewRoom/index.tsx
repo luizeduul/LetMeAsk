@@ -9,7 +9,7 @@ import Button from '../../components/Button';
 import ilustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
-import '../../styles/auth.scss';
+import './styles.scss';
 
 const NewRoom: React.FC = () => {
   const { user } = useAuth();
@@ -35,7 +35,7 @@ const NewRoom: React.FC = () => {
   };
 
   return (
-    <div id="page-auth">
+    <div id="page-new-room">
       <aside>
         <img
           src={ilustrationImg}
