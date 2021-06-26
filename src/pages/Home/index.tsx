@@ -1,4 +1,5 @@
 import React, { FormEvent, useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { database } from '../../services/firebase';
@@ -21,7 +22,6 @@ const Home: React.FC = () => {
     if (!user) {
       await signInWithGoogle();
     }
-
     history.push('/rooms/new');
   };
 
@@ -35,14 +35,12 @@ const Home: React.FC = () => {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      // eslint-disable-next-line no-alert
-      alert('Room this not exists');
+      toast.error('A sala escolhida não existe');
       return;
     }
 
     if (roomRef.val().endedAt) {
-      // eslint-disable-next-line no-alert
-      alert('Room already closed');
+      toast.error('A sala está fechada');
       return;
     }
 
@@ -82,6 +80,9 @@ const Home: React.FC = () => {
           </form>
         </div>
       </main>
+      <div>
+        <Toaster position="top-right" reverseOrder={false} />;
+      </div>
     </div>
   );
 };

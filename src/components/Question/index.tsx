@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import cx from 'classnames';
 import './styles.scss';
 
 type QuestionProps = {
@@ -10,15 +11,30 @@ type QuestionProps = {
 
   // eslint-disable-next-line react/require-default-props
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlighted?: boolean;
 };
 
 const Question: React.FC<QuestionProps> = ({
   content,
   author,
+  isAnswered = false,
+  isHighlighted = false,
   children,
 }: QuestionProps) => {
+  Question.defaultProps = {
+    isAnswered: false,
+    isHighlighted: false,
+  };
+
   return (
-    <div className="question">
+    <div
+      className={cx(
+        'question',
+        { answered: isAnswered },
+        { highlighted: isHighlighted && !isAnswered }
+      )}
+    >
       <p>{content}</p>
       <footer>
         <div className="user-information">
