@@ -53,12 +53,21 @@ const AdminRoom: React.FC = () => {
     });
   };
 
-  const handleEndRoom = async (): Promise<void> => {
+  const handleEndRoom = (): void => {
+    setModalIsVisible(true);
+  };
+
+  const handleConfirmDelete = async (): Promise<void> => {
     await database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
 
+    setModalIsVisible(false);
     history.push('/');
+  };
+
+  const handleCancell = (): void => {
+    setModalIsVisible(false);
   };
 
   return (
@@ -121,8 +130,11 @@ const AdminRoom: React.FC = () => {
       </main>
 
       {modalIsVisible ? (
-        <Modal isVisible>
-          <h1>Test</h1>
+        <Modal>
+          <div className="modal-button-container">
+            <Button onClick={handleCancell}>Cancelar</Button>
+            <Button onClick={handleConfirmDelete}>Sim, encerrar</Button>
+          </div>
         </Modal>
       ) : null}
     </div>
