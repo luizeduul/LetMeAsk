@@ -26,17 +26,23 @@ const AdminRoom: React.FC = () => {
   const history = useHistory();
   const params = useParams<RoomParams>();
 
-  const [modalIsVisible, setModalIsVisible] = useState(false);
+  const [modalDeleteQuestionShown, setModalDeleteQuestionShown] =
+    useState(false);
+  const [modalEndRoomShown, setModalEndRoomShown] = useState(false);
 
   const roomId = params.id;
 
   const { title, questions } = useRoom(roomId);
 
-  const handleDeleteQuestion = async (questionId: string): Promise<void> => {
-    // eslint-disable-next-line no-alert
-    if (window.confirm('Tem certeza que deseja remover essa pergunta?')) {
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
-    }
+  const handleDeleteQuestion = (): void => {
+    setModalDeleteQuestionShown(true);
+  };
+
+  const handleConfirmDeleteQuestion = async (
+    questionId: string
+  ): Promise<void> => {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
+    setModalDeleteQuestionShown(false);
   };
 
   const handleCheckQuestionAnswered = async (
@@ -54,20 +60,25 @@ const AdminRoom: React.FC = () => {
   };
 
   const handleEndRoom = (): void => {
-    setModalIsVisible(true);
+    setModalEndRoomShown(true);
   };
 
-  const handleConfirmDelete = async (): Promise<void> => {
+  const handleConfirmEndRoom = async (): Promise<void> => {
     await database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
 
-    setModalIsVisible(false);
+    setModalEndRoomShown(false);
     history.push('/');
   };
 
   const handleCancell = (): void => {
-    setModalIsVisible(false);
+    if (modalEndRoomShown) {
+      setModalEndRoomShown(false);
+    }
+    if (modalDeleteQuestionShown) {
+      setModalDeleteQuestionShown(false);
+    }
   };
 
   return (
@@ -117,26 +128,46 @@ const AdminRoom: React.FC = () => {
                     </button>
                   </>
                 )}
-                <button
-                  type="button"
-                  onClick={() => handleDeleteQuestion(question.id)}
-                >
+                <button type="button" onClick={handleDeleteQuestion}>
                   <img src={deleteImg} alt="Deletar pergunta" />
                 </button>
+
+                {modalEndRoomShown ? (
+                  <Modal
+                    title="Encerrar sala"
+                    description="Tem certeza que deseja encerrar essa sala?"
+                    icon="end-room"
+                  >
+                    <div className="modal-button-container">
+                      <Button onClick={handleCancell}>Cancelar</Button>
+                      <Button onClick={handleConfirmEndRoom}>
+                        Sim, encerrar
+                      </Button>
+                    </div>
+                  </Modal>
+                ) : null}
+
+                {modalDeleteQuestionShown ? (
+                  <Modal
+                    title="Excluir pergunta"
+                    description="Tem certeza que deseja excluir esta pergunta?"
+                    icon="delete-question"
+                  >
+                    <div className="modal-button-container">
+                      <Button onClick={handleCancell}>Cancelar</Button>
+                      <Button
+                        onClick={() => handleConfirmDeleteQuestion(question.id)}
+                      >
+                        Sim, excluir
+                      </Button>
+                    </div>
+                  </Modal>
+                ) : null}
               </Question>
             );
           })}
         </div>
       </main>
-
-      {modalIsVisible ? (
-        <Modal>
-          <div className="modal-button-container">
-            <Button onClick={handleCancell}>Cancelar</Button>
-            <Button onClick={handleConfirmDelete}>Sim, encerrar</Button>
-          </div>
-        </Modal>
-      ) : null}
     </div>
   );
 };
