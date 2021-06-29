@@ -1,17 +1,20 @@
-.modal-container {
+import styled from 'styled-components';
+
+export const ModalContainer = styled.div`
   display: flex;
+  position: absolute;
   flex: 1;
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
   background: #050206;
-  opacity: 0.8;
+  opacity: 0.6;
   position: absolute;
   align-items: center;
   transition: background-color 0.2s;
 
-  .modal {
+  > div {
     display: flex;
     flex-direction: column;
     background: #f8f8f8;
@@ -23,19 +26,20 @@
     align-items: center;
     justify-content: space-evenly;
     margin: 0 auto;
-
-    .modal-button-container {
-      display: flex;
-      gap: 18px;
-
-      :first-child {
-        background: #dbdcdd;
-        color: #737380;
-      }
-      :not(:first-child) {
-        background: #e73f5d;
-        color: #fefefe;
-      }
-    }
   }
-}
+`;
+
+export const ModalButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+  > button:first-child {
+    background: #dbdcdd;
+    color: #737380;
+  }
+  & button + button {
+    background: #e73f5d;
+    color: #fefefe;
+  }
+`;

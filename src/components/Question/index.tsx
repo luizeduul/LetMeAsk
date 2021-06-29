@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import cx from 'classnames';
-import './styles.scss';
+import { QuestionContainer, UserInformation } from './styles';
 
 type QuestionProps = {
   content: string;
@@ -28,7 +28,7 @@ const Question: React.FC<QuestionProps> = ({
   };
 
   return (
-    <div
+    <QuestionContainer
       className={cx(
         'question',
         { answered: isAnswered },
@@ -37,13 +37,13 @@ const Question: React.FC<QuestionProps> = ({
     >
       <p>{content}</p>
       <footer>
-        <div className="user-information">
+        <UserInformation>
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
-        </div>
+        </UserInformation>
         <div>{children}</div>
       </footer>
-    </div>
+    </QuestionContainer>
   );
 };
 

@@ -10,7 +10,7 @@ import ilustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
-import './styles.scss';
+import { Container, Aside, Main, ButtonGoogle, Separator } from './styles';
 
 const Home: React.FC = () => {
   const history = useHistory();
@@ -48,27 +48,27 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div id="page-auth">
-      <aside>
+    <Container>
+      <Aside>
         <img
           src={ilustrationImg}
           alt="Ilustração simbolizando perguntas e respostas"
         />
         <strong>Crie salas de Q&amp;A ao vivo</strong>
         <p>Tire suas dúvidas da sua audiência em tempo real</p>
-      </aside>
-      <main>
-        <div className="main-content">
+      </Aside>
+      <Main>
+        <div>
           <img src={logoImg} alt="Let me ask" />
-          <button
+          <ButtonGoogle
             type="button"
             onClick={handleCreateRoom}
             className="create-room"
           >
             <img src={googleIconImg} alt="Logo da Google" />
             Crie sua sala com o google
-          </button>
-          <div className="separator">Ou entre em uma sala</div>
+          </ButtonGoogle>
+          <Separator>Ou entre em uma sala</Separator>
           <form onSubmit={handleJoinRoom}>
             <input
               type="text"
@@ -79,11 +79,11 @@ const Home: React.FC = () => {
             <Button type="submit">Entrar na sala</Button>
           </form>
         </div>
-      </main>
+      </Main>
       <div>
         <Toaster position="top-right" reverseOrder={false} />;
       </div>
-    </div>
+    </Container>
   );
 };
 

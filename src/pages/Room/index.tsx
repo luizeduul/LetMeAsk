@@ -12,7 +12,14 @@ import RoomCode from '../../components/RoomCode';
 
 import logoImg from '../../assets/images/logo.svg';
 
-import './styles.scss';
+import {
+  Container,
+  Main,
+  TitleContainer,
+  Form,
+  UserInfo,
+  QuestionList,
+} from './styles';
 
 type RoomParams = {
   id: string;
@@ -72,30 +79,30 @@ const Room: React.FC = () => {
   };
 
   return (
-    <div id="page-room">
+    <Container>
       <header>
-        <div className="content">
+        <div>
           <img src={logoImg} alt="Logo letmeask" />
           <RoomCode code={roomId} />
         </div>
       </header>
-      <main>
-        <div className="room-title">
+      <Main>
+        <TitleContainer>
           <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} perguntas</span>}
-        </div>
-        <form onSubmit={handleSendQuestion}>
+        </TitleContainer>
+        <Form onSubmit={handleSendQuestion}>
           <textarea
             placeholder="O que você quer perguntar"
             onChange={(event) => setNewQuestion(event.target.value)}
             value={newQuestion}
           />
-          <div className="form-footer">
+          <div>
             {user ? (
-              <div className="user-info">
+              <UserInfo>
                 <img src={user.avatar} alt={user.name} />
                 <span>{user.name}</span>
-              </div>
+              </UserInfo>
             ) : (
               <span>
                 Para enviar uma pergunta{' '}
@@ -108,8 +115,8 @@ const Room: React.FC = () => {
               Enviar pergunta
             </Button>
           </div>
-        </form>
-        <div className="question-list">
+        </Form>
+        <QuestionList>
           {questions.map((question) => {
             return (
               <Question
@@ -151,9 +158,9 @@ const Room: React.FC = () => {
               </Question>
             );
           })}
-        </div>
-      </main>
-    </div>
+        </QuestionList>
+      </Main>
+    </Container>
   );
 };
 

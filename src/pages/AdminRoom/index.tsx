@@ -15,7 +15,13 @@ import deleteImg from '../../assets/images/delete.svg';
 import checkImg from '../../assets/images/check.svg';
 import answerImg from '../../assets/images/answer.svg';
 
-import './styles.scss';
+import {
+  Container,
+  HeaderContent,
+  Main,
+  RoomTitle,
+  QuestionList,
+} from './styles';
 
 type RoomParams = {
   id: string;
@@ -82,9 +88,9 @@ const AdminRoom: React.FC = () => {
   };
 
   return (
-    <div id="page-admin-room">
+    <Container>
       <header>
-        <div className="content">
+        <HeaderContent>
           <img src={logoImg} alt="Logo letmeask" />
           <div>
             <RoomCode code={roomId} />
@@ -92,14 +98,14 @@ const AdminRoom: React.FC = () => {
               Encerrar sala
             </Button>
           </div>
-        </div>
+        </HeaderContent>
       </header>
-      <main>
-        <div className="room-title">
+      <Main>
+        <RoomTitle>
           <h1>Sala: {title}</h1>
           {questions.length > 0 && <span>{questions.length} perguntas</span>}
-        </div>
-        <div className="question-list">
+        </RoomTitle>
+        <QuestionList>
           {questions.map((question) => {
             return (
               <Question
@@ -138,12 +144,10 @@ const AdminRoom: React.FC = () => {
                     description="Tem certeza que deseja encerrar essa sala?"
                     icon="end-room"
                   >
-                    <div className="modal-button-container">
-                      <Button onClick={handleCancell}>Cancelar</Button>
-                      <Button onClick={handleConfirmEndRoom}>
-                        Sim, encerrar
-                      </Button>
-                    </div>
+                    <Button onClick={handleCancell}>Cancelar</Button>
+                    <Button onClick={handleConfirmEndRoom}>
+                      Sim, encerrar
+                    </Button>
                   </Modal>
                 ) : null}
 
@@ -153,22 +157,20 @@ const AdminRoom: React.FC = () => {
                     description="Tem certeza que deseja excluir esta pergunta?"
                     icon="delete-question"
                   >
-                    <div className="modal-button-container">
-                      <Button onClick={handleCancell}>Cancelar</Button>
-                      <Button
-                        onClick={() => handleConfirmDeleteQuestion(question.id)}
-                      >
-                        Sim, excluir
-                      </Button>
-                    </div>
+                    <Button onClick={handleCancell}>Cancelar</Button>
+                    <Button
+                      onClick={() => handleConfirmDeleteQuestion(question.id)}
+                    >
+                      Sim, excluir
+                    </Button>
                   </Modal>
                 ) : null}
               </Question>
             );
           })}
-        </div>
-      </main>
-    </div>
+        </QuestionList>
+      </Main>
+    </Container>
   );
 };
 

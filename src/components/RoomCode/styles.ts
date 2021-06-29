@@ -1,4 +1,6 @@
-.room-code {
+import styled from 'styled-components';
+
+export const RoomCodeButton = styled.button`
   height: 40px;
   border-radius: 8px;
   overflow: hidden;
@@ -24,4 +26,4 @@
     font-size: 14px;
     font-weight: 500;
   }
-}
+`;

@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { ButtonHTMLAttributes } from 'react';
-import './styles.scss';
+import { ButtonContainer } from './styles';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   isOutlined?: boolean;
@@ -8,7 +8,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button: React.FC<ButtonProps> = ({ isOutlined = false, ...rest }) => {
   return (
-    <button className={`button ${isOutlined ? 'outlined' : ''}`} {...rest} />
+    <ButtonContainer className={`${isOutlined ? 'outlined' : ''}`} {...rest} />
   );
 };
 

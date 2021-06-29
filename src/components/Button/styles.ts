@@ -1,4 +1,6 @@
-.button {
+import styled from 'styled-components';
+
+export const ButtonContainer = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
@@ -16,7 +18,7 @@
     margin-right: 8px;
   }
 
-  &.outlined{
+  &.outlined {
     background: #fff;
     border: 1px solid #855afd;
     color: #855afd;
@@ -26,8 +28,8 @@
     filter: brightness(0.9);
   }
 
-  &:disabled{
+  &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
-}
+`;
